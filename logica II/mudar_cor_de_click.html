@@ -1,0 +1,41 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    //lista para as cores
+    var cores = ["blue", "red", "green"]
+    //indicação onde coloca a cor inicial como azul
+    var corAtual = 0;
+
+    function desenhaCirculo(evento) {
+
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        //começa o clique na cor inicial e muda conforme a regra
+        pincel.fillStyle = cores[corAtual];
+        pincel.beginPath();
+        pincel.arc(x, y, 10, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y);
+    }
+
+    tela.onclick = desenhaCirculo;
+
+    function mudaCor() {
+
+        //acresenta +1 no número da posição da lista, fazendo a lista andar e mudar a cor da bolinha do clique
+        corAtual++;
+        //O número de cliques tem que ser no máximo até o número do tamanho da lista, para não passar prendemos a quantidade de cliques a ordem e posições de itens da lista, logo se houveram mais de 3 cliques, automaticamente volta para o número de posição inicial e correponde a cor daquela posição
+        if (corAtual >= cores.length) {
+            corAtual = 0;
+        }
+        return false;
+    }
+
+    tela.oncontextmenu = mudaCor;
+
+</script>

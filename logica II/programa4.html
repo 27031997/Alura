@@ -1,0 +1,49 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio){
+
+    	pincel.fillStyle = "blue";
+    	pincel.beginPath();
+    	pincel.arc(x,y,raio,0, 2 * Math.PI);
+    	pincel.fill();
+
+    }
+
+    function limpaTela(){
+    	//pincel limpa o retângulo conforme as posições declaradas
+    	pincel.clearRect(0,0,600,400);
+    }
+
+   /*
+   function exibeMensagemNoConsole(){
+    	console.log("Chamei função");
+    }*/
+
+    // cria-se uma variável com nome x, para poder ser chamada e acrescentada dentro da função
+    var x =20;
+    var sentido = 1;
+    function atualizaTela(){
+    	limpaTela();
+    	//se x for maior que 600, bate e volte para o  início
+	    if(x>600){
+	    	sentido = -1;
+	    }else if(x<0){
+	    	sentido = 1;
+	    }
+    	desenhaCirculo(x,20,10);
+    	//x recebe o valor do x + o valor do sentido que ele está indo 
+    	x = x + sentido;
+
+    }
+    
+    //função que permite chamar outra função dentro do parêmetro e permite colocar em  milessegundos de quanto em quanto tempo é para ser executada
+    setInterval(atualizaTela, 10);
+
+</script>

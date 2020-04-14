@@ -1,0 +1,43 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    //da nome a variável e atribui um valor boolean para utilizarmos o TRUE e o FALSE dessa variável dentro das funções
+    var desenha = false;
+
+    function desenhaCirculo(evento) {
+        //SE a variável for VERDADEIRA aplica a regra dessa função
+        if(desenha){
+            var x = evento.pageX - tela.offsetLeft;
+            var y = evento.pageY - tela.offsetTop;
+
+            pincel.fillStyle = 'blue';
+            pincel.beginPath();
+            pincel.arc(x, y, 10, 0, 2 * 3.14);
+            pincel.fill();
+        }
+
+        //mostra a posição do clique (em x e y) no Console da página (f12)
+        console.log(x + ',' + y);
+
+    }
+
+    //cria-se essa função para atribuir sua regra quando chamada por um evento de clique de mouse
+    function desenhando(){
+        desenha = true;
+    }
+    //cria-se essa função para atribuir sua regra quando chamada por um evento de Não clique de mouse
+    function naoDesenhando(){
+        desenha = false;
+    }
+    
+    tela.onmousemove = desenhaCirculo;
+    tela.onmousedown = desenhando;
+    tela.onmouseup = naoDesenhando;
+
+</script>
