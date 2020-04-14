@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+
+<script>
+
+	/*var ano = 2017;
+	document.write("Flávio tem " + (ano -1977) + " anos" + "<br>" );
+	document.write("Joaquim tem " + (ano-1996) + " anos" + "<br>");
+	document.write("Barney tem " + (ano-1976) +" anos" );*/
+
+	/*var n = 8;
+	document.write(n + " vezes 1 é " + n * 1+ "<br>");
+    document.write(n + " vezes 2 é " + n * 2+ "<br>");
+    document.write(n + " vezes 3 é " + n * 3+ "<br>");
+    document.write("5 vezes 4 é " + 5 * 4+ "<br>");
+    document.write("5 vezes 5 é " + 5 * 5+ "<br>");
+    document.write("5 vezes 6 é " + 5 * 6+ "<br>");
+    document.write("5 vezes 7 é " + 5 * 7+ "<br>");
+    document.write("5 vezes 8 é " + 5 * 8+ "<br>");
+    document.write("5 vezes 9 é " + 5 * 9+ "<br>");
+    document.write("5 vezes 10 é " + 5 * 10+ "<br>");*/
+	
+    function pulaLinha() {
+
+        document.write("<br>");
+    }
+
+    function mostra(frase) {
+        document.write(frase);
+        pulaLinha();
+    }
+
+    function a(texto) {
+
+        return "(" + texto + ")";
+    }
+
+    function b(texto) {
+
+        return "@" + texto + "@";
+    }
+
+    function c(nome, sobrenome) {
+
+        return b(nome + " " + a(sobrenome));
+
+    }
+
+    var resultado = c("Flávio", "Almeida");
+
+    mostra(resultado);
+</script>

@@ -1,0 +1,27 @@
+<meta charset="utf-8">
+
+<script >
+	
+	function pulaLinha(){
+		document.write("<br>")
+	}
+	function mostra (frase){
+		document.write(frase);
+		pulaLinha();
+	}
+
+	/*var idadeMinha = 22;
+	var idadeIrmao = 40;
+	var conta = idadeIrmao - idadeMinha;
+
+	mostra("Nossa diferença de idade é: " + conta);*/
+
+	var anoAtual = 2019;
+	var anoInicial = 1500;
+	var idadeMediatempoFilhos = 28
+	var quantidadeDeGeracoes = (anoAtual - anoInicial) / idadeMediatempoFilhos;
+	mostra("Se passaram o tataol de: " + Math.round(quantidadeDeGeracoes) + " gerações");
+
+
+
+</script>
